@@ -26,9 +26,8 @@
     <%= form.text_area :description, id: :post_description %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :curent_user_id %>
+  <div>
+    <% form.label :user_id, id: :post_user%>
   </div>
 
   <div class="actions">
