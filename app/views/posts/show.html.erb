@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<div class="card text-center text-dark bg-white">
-  <h5 class="card-header"><%= @post.title %></h5>
-    <div class="card-body">
-      <h6 class="card-subtitle mb-2 text-muted"><%= @post.text %></h6>
-      <p class="card-text"><%= @post.description %></p>
-    </div>
-      <div class="card-footer text-muted">
-        User: <%= @post.user %>
-      </div>
+<div class="card text-left mb-2">
+  <h1 class="card-header ", style="font-size: 18px"><%= @post.title %></h1>
+  <div class="card-body">
+    <h2 class="card-subtitle ", style="font-size: 16px"><%= @post.description %></h2>
+    <p class="card-text"><%= markdown(@post.text) %></p>
   </div>
+  <div class="card-footer">
+    User: <%= @post.user.email %> Created: <%= @post.created_at %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-light' %>
+
+  <%= link_to 'Back', post_path, class: 'btn btn-light' %>

@@ -1,23 +1,17 @@
 <p id="notice"><%= notice %></p>
-<div class="card-columns">
-  <% @posts.each do |post| %>
-    <div class="card text-left text-dark bg-white">
-      <h5 class="card-header"><%= post.title %></h5>
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted"><%= post.text %></h6>
-          <p class="card-text"><%= post.description %></p>
-            <% if user_signed_in? %>
-                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-light' %></button>
-                <%= link_to 'Edit', edit_post_path(post),class: 'btn btn-light' %></button>
-                <%= link_to 'Show', post,class: 'btn btn-light' %></button>
-            <% else %>
-              <%= link_to 'Show', post,class: 'btn btn-light' %></button>
-            <% end %>
-        </div>
-          <div class="card-footer text-muted">
-            User: <%= post.user %>
-          </div>
+
+<% @posts.each do |post| %>
+  <div class="card text-left mb-3">
+    <h1 class="card-header ", style="font-size: 18px"><%= post.title %></h1>
+    <div class="card-body">
+      <h2 class="card-subtitle ", style="font-size: 16px"><%= post.description %></h2>
+      <p class="card-text"><%= markdown(post.text) %></p>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-light'%>
+      <%= link_to 'Edit', edit_post_path(post),class: 'btn btn-light' %>
+      <%= link_to 'Show', post,class: 'btn btn-light' %>
     </div>
-  <% end %>
-</div>
-<br>
+    <div class="card-footer">
+      User: <%= post.user.email %> Created: <%= post.created_at %>
+    </div>
+  </div>
+<% end %>
