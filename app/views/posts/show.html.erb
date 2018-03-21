@@ -1,24 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
+<div class="card text-center text-dark bg-white">
+  <h5 class="card-header"><%= @post.title %></h5>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted"><%= @post.text %></h6>
+      <p class="card-text"><%= @post.description %></p>
+    </div>
+      <div class="card-footer text-muted">
+        User: <%= @post.user %>
+      </div>
+  </div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

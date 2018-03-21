@@ -1,36 +1,20 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= bootstrap_form_for(@post) do |f| %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :post_title %>
+    <%= f.text_field :title, id: :post_title %>
   </div>
 
   <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text, id: :post_text %>
+    <%= f.text_area :description, id: :post_description %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :post_description %>
-  </div>
-
-  <div>
-    <% form.label :user_id, id: :post_user%>
+  <div class="form-group">
+    <%= f.text_area :text, id: :post_text, rows: '8' %>
+    <small class="form-text text-muted">You can use markdown.</small>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
+
 <% end %>
