@@ -9,7 +9,7 @@
       <%= link_to 'Show', post,class: 'btn btn-light' %>
     </div>
     <div class="card-footer">
-      <%= link_to 'Creator profile', profile_path(post.user) %> Created: <%= post.created_at %>
+      <%= link_to 'Author profile', profile_path(post.user) %> Created: <%= post.created_at %>
     </div>
   </div>
 <% end %>
