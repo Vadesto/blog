@@ -1,4 +1,6 @@
-<% @posts.each do |post| %>
+<h1> User: <%= @profiles.email %> </h1>
+
+<% @profiles.post.each do |post| %>
   <div class="card text-left mb-3">
     <h1 class="card-header ", style="font-size: 18px"><%= post.title %></h1>
     <div class="card-body">
@@ -9,7 +11,7 @@
       <%= link_to 'Show', post,class: 'btn btn-light' %>
     </div>
     <div class="card-footer">
-      <%= link_to 'Creator profile', profile_path(post.user) %> Created: <%= post.created_at %>
+      Created: <%= post.created_at %>
     </div>
   </div>
 <% end %>
