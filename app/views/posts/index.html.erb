@@ -4,8 +4,8 @@
     <div class="card-body">
       <h2 class="card-subtitle ", style="font-size: 16px"><%= post.description %></h2>
 
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-light'%>
-      <%= link_to 'Edit', edit_post_path(post),class: 'btn btn-light' %>
+      <% if can? :destroy, post %><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-light'%><%end%>
+      <% if can? :update, post %><%= link_to 'Edit', edit_post_path(post),class: 'btn btn-light' %><%end%>
       <%= link_to 'Show', post,class: 'btn btn-light' %>
     </div>
     <div class="card-footer">
